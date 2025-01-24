@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  /* display: flex; */
+  /* place-items: center; */
+  /* min-width: 320px; */
+  /* min-height: 100vh; */
+  background-color: #FFFFFF;
+}
+
+.bombilla.apagada {
+    /* display: inline-block; */
+    color:blue
+  }
+  
+  .bombilla.encendida {
+    color: var(--color-encendido, red); /* Color definido dinámicamente */
+  }
+
+  .code {
+    font-size: 14px; /* Ajusta el tamaño de la fuente según tus necesidades */
+    color: #800000; /* Este es el color tinto */
+    font-family: 'Courier New', Courier, monospace; /* Fuente tipo máquina de escribir */
+}
