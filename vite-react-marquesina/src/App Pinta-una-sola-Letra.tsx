@@ -9,7 +9,7 @@ import caracteres from './componentes/Caracteres';
 export const App =()=> {
   
     // Buscar la letra "A" como ejemplo
-    const letra = caracteres.find((caracter) => caracter.nombre === "B");
+    const letra = caracteres.find((caracter) => caracter.simbolo === "B");
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "20px" }}>      

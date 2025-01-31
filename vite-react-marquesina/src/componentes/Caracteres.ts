@@ -1,11 +1,12 @@
 interface Caracter {
-  nombre: string;
+  simbolo: string;
   matriz: string[];
 }
 
+//Arreglo de Objetos de símbolos, define la matriz que representa a cada letra
 const caracteres: Caracter[] = [
     {
-      nombre: "A",
+      simbolo: "A",
       matriz: [
         "00100",
         "01010",
@@ -17,7 +18,7 @@ const caracteres: Caracter[] = [
       ],
     },
     {
-      nombre: "B",
+      simbolo: "B",
       matriz: [
         "11110",
         "10001",
@@ -29,7 +30,7 @@ const caracteres: Caracter[] = [
       ],
     },
     {
-      nombre: "C",
+      simbolo: "C",
       matriz: [
         "01111",
         "10000",
@@ -37,25 +38,39 @@ const caracteres: Caracter[] = [
         "10000",
         "10000",
         "10000",
-        "01111",
-      ],
-    },
-
-    {
-      nombre: "D",
-      matriz: [
-        "01111",
-        "10001",
-        "10001",
-        "10001",
-        "10001",
-        "10001",
         "01111",
       ],
     },
 
     {
-      nombre: "Espacio",
+      simbolo: "D",
+      matriz: [
+        "01111",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "01111",
+      ],
+    },
+
+    {
+      simbolo: "E",
+      matriz: [
+        "11111",
+        "10000",
+        "10000",
+        "11111",
+        "10000",
+        "10000",
+        "11111",
+      ],
+    },
+
+
+    {
+      simbolo: "Espacio",
       matriz: [
         "00000",
         "00000",
