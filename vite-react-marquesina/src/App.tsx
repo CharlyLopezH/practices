@@ -9,16 +9,31 @@ import { PintarBombilla } from './componentes/PintarBombilla';
 //Componente principal de la app, ejercicio **marquesina**
 export const App =()=> {
 
+  const matrizEspacio = [
+    "00000",
+    "00000",
+    "00000",
+    "00000",
+    "00000",
+    "00000",
+    "00000",
+  ];
+
   const texto='A';
-  
+
+    // Define el estado para matrizSimbolos
+    const [matrizSimbolos2, setMatrizSimbolos2] = useState(["ABCDEF"]);
+      
   //console.log(`cadena original "${texto}"; Después de split: "${textoSplit}"`);
   
   // Divide el texto en un arreglo de caracteres (matriz-símbolo 0 1)
   //split toma cada elemento (caracter) del texto y permite hacer una iteración con cada uno de ellos
   
   //nos trae la representación matricial de cada caracter según el mapara de Caracteres
-  const matrizSimbolos = texto.split("").map((char) => {
-    const charFind= caracteres.find((ch) => ch.simbolo === char);
+  
+  const matrizSimbolos = texto.split("")
+  .map((char,index) => {
+  const charFind= caracteres.find((ch) => ch.simbolo === char);
 
     if (charFind) {
       
@@ -43,16 +58,13 @@ export const App =()=> {
 
       });            
     }
-    
   })
   
-  //matrizSimbolos.map((chr)=>console.log(`Char: ${chr?.simbolo}, su Matriz:${chr?.matriz}`));
-
-  //matrizSimbolos.forEach((obj, index) => console.log(`Índice ${index}:`, obj));
   
   //Prende y apaga el foco
   const [encender, setEncender]=useState(1);
-      
+
+   
   const onHandleEncendido = () => {
         setEncender(encender === 1 ? 0 : 1);
     }
@@ -75,16 +87,66 @@ export const App =()=> {
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "20px" }}>  
 
 
-    <PintarBombilla caracter={'⬤'} color={'#0D9A58'} tamano={'20px'} encendido={encender}/>          
+    {/* <PintarBombilla caracter={'⬤'} colorCar={'#0D9A58'} tamano={'25px'} encendido={encender}/>           */}
 
   
     {/* Sí funciona
     <PintarBombilla caracter={'⬤'} color={'#0D9A58'} tamano={'20px'} encendido={encender}/> 
     */}
 
-    {
-      //matrizSimbolos.filter((c)=>c!==undefined).map((ch,chIx)=>({})
-    }
+{/* {  
+  matrizSimbolos && (
+    <div> 
+      <h1>
+        {matrizSimbolos
+        .filter((f) => f !== undefined )
+        .map((e,cIndex) => (<span key={cIndex}> {e}</span>
+
+          ))}
+      </h1>
+    </div>
+  ) 
+} */}
+
+
+{/* Atención aquí... */}
+
+{matrizSimbolos2.map((car, carIndex) => {
+      // Divide el string en un array de caracteres
+      const caracteresArray = car.split("");
+
+      // Mapea cada carácter para procesarlo
+      return (
+
+          <div key={carIndex} style={{ display: "flex", flexDirection: "row"}} >
+            
+            {/* Hace un mapeo para iterar sobre cada caracter */}
+            {caracteresArray.map((caracter, index) => {
+              // Busca la matriz correspondiente al carácter
+              const caracterInfo = caracteres.find(
+                (c) => c.simbolo === caracter
+              );
+              // Si no encuentra el carácter, usa el espacio
+              const matriz = caracterInfo ? caracterInfo.matriz : matrizEspacio;
+              return (
+                <div key={index} style={{ marginRight: "30px" }}>
+                  {/* <h3>Carácter: {caracter}</h3> */}
+                  <div >
+                    {matriz.map((fila, filaIndex) => (
+                      <div style={{height:"30px", marginTop:"0px", textAlign:'center', alignContent:'center', display:'flex' }}
+                         key={filaIndex}>
+                        {fila.split("").map((valor, valorIndex) => (                                                   
+                          <PintarBombilla encendido={valor==="1"} colorCar={"green"} caracter={'⬤'} tamano={'25px'} />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>      );
+    })
+  }
 
     {/* Código para observar el interior de una matriz */}
 

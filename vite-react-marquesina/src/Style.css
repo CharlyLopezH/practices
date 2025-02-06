@@ -7,6 +7,14 @@ body {
   background-color: #FFFFFF;
 }
 
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ajusta esta altura según tus necesidades */
+  width: 100%; /* Ajusta este ancho según tus necesidades */
+}
+
 .bombilla.apagada {
     /* display: inline-block; */
     color:blue
